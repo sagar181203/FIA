@@ -97,19 +97,20 @@ export default function BudgetPage() {
             };
             return (
               <div key={s.key} className="mb-5">
-                <div className="flex items-center gap-3">
-                  <span className="text-[12.5px] min-w-[130px]">{s.label}</span>
+                <div className="flex items-center gap-2 sm:gap-3 flex-wrap sm:flex-nowrap">
+                  <span className="text-[11px] sm:text-[12.5px] min-w-[80px] sm:min-w-[130px]">{s.label}</span>
                   <input
                     type="range" min={0} max={60} value={s.pct}
                     style={{ ...trackStyle, color: s.color }}
                     onChange={e=>setSlider(s.key,+e.target.value)}
+                    className="flex-1 min-w-[80px]"
                   />
-                  <span className="text-[13px] font-bold font-mono min-w-[34px] text-right" style={{color:s.color}}>{s.pct}%</span>
-                  <span className="text-[11px] font-mono text-muted min-w-[72px] text-right">{fmt(amt)}/{budgetView==="annual"?"yr":"mo"}</span>
+                  <span className="text-[10px] sm:text-[13px] font-bold font-mono min-w-[30px] sm:min-w-[34px] text-right" style={{color:s.color}}>{s.pct}%</span>
+                  <span className="text-[9px] sm:text-[11px] font-mono text-muted min-w-[55px] sm:min-w-[72px] text-right whitespace-nowrap">{fmt(amt).replace("₹","Rs ")}/{budgetView==="annual"?"yr":"mo"}</span>
                 </div>
                 {s.key==="health"&&amt<5000&&budgetView==="monthly"&&(
-                  <div className="pl-[138px] mt-1.5">
-                    <span className="text-[10px] font-bold bg-danger/15 text-danger px-2 py-0.5 rounded-full">⚠️ Min ₹5,000/month</span>
+                  <div className="mt-1.5">
+                    <span className="text-[9px] sm:text-[10px] font-bold bg-danger/15 text-danger px-2 py-0.5 rounded-full inline-block">⚠️ Min ₹5,000/month</span>
                   </div>
                 )}
               </div>

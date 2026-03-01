@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         {/* CONTENT */}
-        <main className="flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling:"touch" }}>
+        <main className="flex-1 overflow-y-auto min-h-0" style={{ WebkitOverflowScrolling:"touch" }}>
           {children}
         </main>
 
