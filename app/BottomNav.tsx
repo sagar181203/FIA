@@ -14,7 +14,7 @@ export default function BottomNav() {
   const path = usePathname();
   return (
     <nav
-      className="flex-shrink-0 flex border-t border-border w-full"
+      className="flex border-t border-border w-full"
       style={{
         background: "rgba(10,18,34,0.98)",
         paddingBottom: "max(8px, env(safe-area-inset-bottom))",
@@ -22,6 +22,7 @@ export default function BottomNav() {
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
         minHeight: "60px",
+        width: "100%",
       }}
     >
       {TABS.map((t) => {

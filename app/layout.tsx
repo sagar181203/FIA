@@ -32,12 +32,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="mobile-web-app-capable" content="yes" />
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
       </head>
-      <body className="bg-bg text-text font-sans overflow-hidden h-screen flex flex-col">
+      <body className="bg-bg text-text font-sans overflow-hidden h-screen flex flex-col w-screen">
 
         {/* HEADER */}
         <header className="flex-shrink-0 flex items-center justify-between px-4 border-b border-border"
           style={{ paddingTop:"max(12px,env(safe-area-inset-top))", paddingBottom:12,
-            background:"rgba(6,11,24,0.97)", backdropFilter:"blur(20px)", WebkitBackdropFilter:"blur(20px)" }}>
+            background:"rgba(6,11,24,0.97)", backdropFilter:"blur(20px)", WebkitBackdropFilter:"blur(20px)", zIndex: 10 }}>
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
               style={{ background:"linear-gradient(135deg,#00e5b8,#5b5ef4)", boxShadow:"0 0 18px rgba(0,229,184,0.4)" }}>
@@ -68,12 +68,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         {/* CONTENT */}
-        <main className="flex-1 overflow-y-auto min-h-0" style={{ WebkitOverflowScrolling:"touch" }}>
+        <main className="flex-1 overflow-y-auto min-h-0" style={{ WebkitOverflowScrolling:"touch", paddingBottom: "max(68px, calc(68px + env(safe-area-inset-bottom)))" }}>
           {children}
         </main>
 
         {/* BOTTOM NAV */}
-        <BottomNav />
+        <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 50 }}>
+          <BottomNav />
+        </div>
 
       </body>
     </html>
