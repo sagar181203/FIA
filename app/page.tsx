@@ -19,10 +19,10 @@ export default function Dashboard() {
           <span className="font-bold text-[15px]">Your Financial Profile</span>
         </div>
         <div className="grid grid-cols-2 gap-3">
-          <div><label className={lbl}>Name</label><input className={inp} placeholder="Rahul Sharma" value={p.name} onChange={e=>upd({name:e.target.value})}/></div>
-          <div><label className={lbl}>Age</label><input className={inp} type="number" placeholder="32" value={p.age} onChange={e=>upd({age:e.target.value})}/></div>
+          <div><label className={lbl}>Name</label><input className={inp} placeholder="Sam Parker" value={p.name} onChange={e=>upd({name:e.target.value})}/></div>
+          <div><label className={lbl}>Age</label><input className={inp} type="number" placeholder="23" value={p.age} onChange={e=>upd({age:e.target.value})}/></div>
           <div><label className={lbl}>Annual Salary (₹)</label>
-            <input className={inp} type="number" placeholder="800000" value={p.salary}
+            <input className={inp} type="number" placeholder="1200000" value={p.salary}
               onChange={e=>upd({salary:e.target.value, monthlyIncome:e.target.value?(num(e.target.value)/12).toFixed(0):""})}/>
           </div>
           <div><label className={lbl}>Monthly Expenses (₹)</label><input className={inp} type="number" placeholder="35000" value={p.monthlyExpenses} onChange={e=>upd({monthlyExpenses:e.target.value})}/></div>
